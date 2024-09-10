@@ -1,4 +1,4 @@
-The Quest for SEC Scrolls: A Pythonic Adventure
+**The Quest for SEC Scrolls: A Pythonic Adventure**
 Introduction
 Welcome, brave adventurer, to the mystical realm of Python, where you shall embark on a quest not for gold or glory, but for knowledge—the arcane scrolls of the SEC. This README shall guide you through the installation of the necessary tools, the setup of your environment, and the execution of your script, all while immersing you in a tale of adventure and discovery.
 
@@ -37,7 +37,7 @@ Explore Functions: Each function might represent a different chamber or vault wh
 Handle Exceptions: These are the traps and puzzles you must solve to proceed.
 Output: Your treasure, the scrolls of SEC data, revealed in the terminal or saved to files.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-The Quest for SEC Scrolls: A GUI Adventure - Step-by-Step Guide
+**The Quest for SEC Scrolls: A GUI Adventure - Step-by-Step Guide**
 Your Journey Through the GUI
 Step 1: Begin Your Search
 Action: Click the Search Button and enter a search term or CIK number.
@@ -65,8 +65,8 @@ uWu May your GUI adventures be filled with discovery.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-The Functions of Your NO GUI Quest, If one chooses No to GUI, :
-1. Archives - The Great Library of SEC
+**The Functions of Your NO GUI Quest, If one chooses No to GUI, :
+**1. Archives - The Great Library of SEC
 Function: archives_search()Description: This function acts as your magical compass within the vast archives of the SEC. Here, you can search for companies by their CIK number or even by last names, akin to seeking ancient tomes by their title or author. The output is a CSV, your map to further adventures, which can be used with other functions for deeper exploration.
 
 2. CSV - The Scroll of Catalogues
@@ -97,8 +97,8 @@ Upon completing your quest, remember:
 Knowledge is power, but use it wisely. The scrolls you've uncovered are for enlightenment, not mischief.
 The path of the adventurer is fraught with peril. Always ensure you're in compliance with local laws and regulations when handling such arcane knowledge.
 
-Disclaimer
-By the Ancient Code of Adventurers: The creator of this script, while a guide on your journey, takes no responsibility for how you choose to wield the knowledge gained. Always consult with local sages (laws) before using such powerful artifacts. The creator of this script, while guiding you, takes no responsibility for how you choose to use this powerful tool.
+**Disclaimer
+By the Ancient Code of Adventurers: The creator of this script, while a guide on your journey, takes no responsibility for how you choose to wield the knowledge gained. Always consult with local sages (laws) before using such powerful artifacts. The creator of this script, while guiding you, takes no responsibility for how you choose to use this powerful tool.**
 
 May your adventures in Python be filled with wonder, and may you always find the scrolls you seek.
 

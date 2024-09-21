@@ -48,6 +48,7 @@ third_party_modules = [
     'bs4',  # BeautifulSoup (part of bs4 package)
     'tqdm',
     'PySimpleGUI',
+    'colorama',
 ]
 
 def check_and_install_modules():
@@ -104,6 +105,7 @@ def import_modules():
     from tqdm import tqdm
     import PySimpleGUI as sg
     stop_flag = threading.Event()
+    from colorama import Fore, Style, init
 
 # Function to get a random User-Agent
 def get_random_user_agent():
@@ -326,28 +328,6 @@ def download_daily_index_files():
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def filter_errors(script_name):
-    # Create a pipe to capture stderr
-    stderr_pipe = subprocess.PIPE
-    
-    # Run the command and capture stderr
-    process = subprocess.Popen(
-        ['python3', 'your_script.py'],
-        stderr=stderr_pipe,
-        stdout=subprocess.PIPE
-    )
-
-    # Read stderr line by line
-    with process.stderr as stderr:
-        for line in stderr:
-            # Decode bytes to string and filter out ALSA messages
-            line_str = line.decode('utf-8')
-            if 'ALSA' not in line_str:
-                sys.stderr.write(line_str)  # Write the filtered error to stderr
-
-    # Wait for the process to complete
-    process.wait()
-
 # Function to generate a random color
 def random_color():
     return f"\033[38;5;{random.randint(0, 255)}m"
@@ -358,7 +338,7 @@ def reset_color():
 
 # Function to display Pacman moving across the screen
 def display_power():
-    pacman_frames = [
+    power_frames = [
 	"""                                                                 
                             bbbbbbbbb                            
                           bbdb     dbdb                          
@@ -1037,10 +1017,10 @@ def display_power():
 
 	]
 
-    for frame in pacman_frames:
+    for frame in power_frames:
         clear_screen()
         print(random_color() + frame + reset_color())
-        time.sleep(0.05)
+        time.sleep(0.03)
 
     clear_screen()
     display_ascii_art()
@@ -1438,6 +1418,9 @@ frames = [
 
 # Function for t43 l33t
 def intro():
+    from colorama import Fore, Style, init
+
+    init(autoreset=True)  # Initialize colorama for colored terminal output
 
     class FilteredStream(StringIO):
         def __init__(self):
@@ -1538,26 +1521,34 @@ def intro():
             print(colorize_text('\n'.join(faded_art), COLORS[-1]))
             time.sleep(frame_rate)
 
-    def display_rainbow_gradient(ascii_art, colors, duration=3, frame_rate=0.033):
-        """Display the ASCII art with a rainbow gradient transition from top to bottom."""
-        num_frames = int(duration / frame_rate)
+    def clear_screen():
+        """Clear the terminal screen."""
+        print("\033[H\033[J", end="", flush=True)
+
+    def colorize_text(text, color):
+        """Colorize the given text with the provided color."""
+        return color + text + Style.RESET_ALL
+
+    def display_rainbow_gradient(ascii_art, colors, duration=1, frame_rate=0.033):
+        """Display the ASCII art with a rainbow gradient transition from top to bottom over 30 frames."""
+        total_frames = 30
+        frame_duration = duration / total_frames
         ascii_lines = ascii_art.split('\n')
         num_rows = len(ascii_lines)
 
-        for frame in range(num_frames):
+        for frame in range(total_frames):
             clear_screen()
             gradient_art = []
 
             for i, line in enumerate(ascii_lines):
-                # Calculate the color index based on the row number and frame number
-                color_index = int((i / num_rows * len(colors) + frame / num_frames * 0.1) % len(colors))
+                # Calculate the color index based on both the row number and frame number
+                color_index = int(((i / num_rows) + (frame / total_frames)) * len(colors)) % len(colors)
                 line_color = colors[color_index]
                 gradient_art.append(colorize_text(line, line_color))
         
             print('\n'.join(gradient_art))
-            time.sleep(frame_rate)
-    
-        #clear_screen()  # Clear the screen after the last frame
+            time.sleep(frame_duration)
+
         
     ascii_art = """
  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\  /\_/\ 
@@ -1612,7 +1603,8 @@ def intro():
     
     # Phase 2: Rainbow gradient
     clear_screen()
-    display_rainbow_gradient(ascii_art, COLORS, duration=.5, frame_rate=0.033)
+    colors = [Fore.RED, Fore.YELLOW, Fore.GREEN, Fore.CYAN, Fore.BLUE, Fore.MAGENTA]
+    display_rainbow_gradient(ascii_art, colors)
 
     # Phase 3: Fade out specified borders
     fade_out_borders(ascii_art, border_art, duration=.5, frame_rate=0.033)
@@ -1624,7 +1616,7 @@ def intro():
 
     # Phase 5: Rainbow gradient
     clear_screen()
-    display_rainbow_gradient(border_art, COLORS, duration=.5, frame_rate=0.033)
+    display_rainbow_gradient(border_art, COLORS, duration=1, frame_rate=0.033)
 
 # Function to handle errors
 def handle_error(e):
@@ -6840,8 +6832,6 @@ if __name__ == '__main__':
         # Ensure the directory exists
         download_directory.mkdir(parents=True, exist_ok=True)
 
-        script_name = 'fox.py'  # Replace with the name of your script
-        filter_errors(script_name)
         #print("Normalized Path:", normalized_path)
         print("checking and importing any missing modules")
         check_and_install_modules()
@@ -6893,32 +6883,16 @@ if __name__ == '__main__':
         download_pre_files()
         download_daily_index_files()  # This will handle the daily files for 2024
 
-        GUI_Variable = input("Graphical User Interface? hmm? (y/n)").strip().lower() or 'y'
+        GUI_Variable = input("Graphical User Interface? hmm? (y/n):").strip().lower() or 'y'
         if GUI_Variable == 'y':
             #display_power()
             main()
         else:
-            intro()
-            #intro()# begin the show
-            game = input("Would you like to play the game?").strip().lower()
-            if game == "yes":
-                game_1()  # Run game_1 regardless of outcome
-        
-            # After game_1 finishes, proceed to the next.
-            game2 = input("Would you like to play the other game? ").strip().lower()
-            if game2 == "yes":
-                game_2()
-            elif game2 == "no":"""    
-                game3 = input("Would you like to play the other other game? ").strip().lower()
-                if game3 == "yes":
-                    game_3()
-                    print("nt.")
-                elif game3 == "no":
-                    print("Proceeding.")
-                else:
-                    print("Please answer with 'yes' or 'no'.")"""
-            else:
-                print("Please answer with 'yes' or 'no'.")
+            display_power()
+            intro()# begin the show
+            game = input("Would you like to play the game? (y/n): ").strip().lower() or 'y'
+            if game == "y":
+                game_2()  # Run game
 
             try:
                 if not check_free_space():

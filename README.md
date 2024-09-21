@@ -12,19 +12,20 @@ It comes with Python, but ensure it's up to date by running:
 bash
 python -m pip install --upgrade pip
 
-Installation
-To install the script's dependencies, :
+The script is your map and key to the treasure vaults of SEC knowledge,
+The Quest Begins with the following incantations..
 
 Open your terminal (the portal to the digital realm).
-it should autowhip them all into creation, in the same folder the script was ran from.
+linux: sudo python3 TheDoor.py
+windows : python3 TheDoor.py
+it will whip the sec files necessary into creation, 
+in the same folder the script was ran from.
+SEC master archives come in zip form, with an idx file inside. its a spreadsheet.. those are saved to ./sec_archives/, where as the edgar files downloaded are text files, which are either htm or xml files, and those will go to ./edgar/.
 
-Since the script is your map and key to the treasure vaults of SEC knowledge,
-The Quest Begins with the following incantations..
-Here's how to embark:
-run the script.
 
 The Adventure
-As you run the script, imagine yourself navigating through ancient libraries, each function a room, each loop a corridor:
+As you run the script, imagine yourself navigating through ancient libraries,
+each function a room, each loop a corridor the the halls of NGMI:
 
 Explore Functions: Each function might represent a different chamber or vault where scrolls are kept.
 Handle Exceptions: These are the traps and puzzles you must solve to proceed.

@@ -7,40 +7,32 @@ Prerequisites
 Before you can begin your quest, ensure your realm (computer) is prepared:
 
 Python: The ancient language of the wise. Download the latest version from python.org. 
-pip: The magical tool for installing additional spells (packages). It comes with Python, but ensure it's up to date by running:
+pip: The magical tool for installing additional spells (packages). 
+It comes with Python, but ensure it's up to date by running:
 bash
 python -m pip install --upgrade pip
 
 Installation
-To install the script's dependencies, you'll need to cast the following incantations:
+To install the script's dependencies, :
 
 Open your terminal (the portal to the digital realm).
-Navigate to the directory where you've saved charlie.py:
-bash
-cd path/to/your/script
-Install the required packages with:
-bash
-pip install -r requirements.txt
+it should autowhip them all into creation, in the same folder the script was ran from.
 
-If there's no requirements.txt, you might need to manually install sec-api or any other libraries mentioned in the script.
-
-The Quest Begins
-Your script, charlie.py, is your map and key to the treasure vaults of SEC knowledge. Here's how to embark:
-
-Run the script from your terminal:
-bash
-python charlie.py
+Since the script is your map and key to the treasure vaults of SEC knowledge,
+The Quest Begins with the following incantations..
+Here's how to embark:
+run the script.
 
 The Adventure
 As you run the script, imagine yourself navigating through ancient libraries, each function a room, each loop a corridor:
 
 Explore Functions: Each function might represent a different chamber or vault where scrolls are kept.
 Handle Exceptions: These are the traps and puzzles you must solve to proceed.
-Output: Your treasure, the scrolls of SEC data, revealed in the terminal or saved to files.
+Output: Your treasure, the scrolls of SEC data, revealed in the terminal or saved to files in /edgar/.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-The Quest for SEC Scrolls: A GUI Adventure - Step-by-Step Guide
+The Quest for SEC Scrolls: A GUI Adventure - GUI Guide
 
 Your Journey Through the GUI
 Step 1: Begin Your Search
@@ -81,10 +73,11 @@ The Functions of Your NO GUI Quest, If one chooses No to GUI, :
     -Crawling: A more daring approach, akin to sending out spectral scouts to gather every scroll related to the CIK numbers listed.
 
 3. View-Files - The Inventory Check
--Description: Before you can use your scrolls, you must ensure they are not corrupted or cursed. This function performs an inventory check on your downloaded SEC filings, ensuring they are ready for use, much like a mage checking their spell components.
+-Description: Before you can use your scrolls, you must ensure they are not corrupted or cursed. This function performs an inventory check on your downloaded SEC filings, ensuring they are ready for use, much like a mage checking their spell components. Displays all downloaded CIK's as converted company names, and allows for viewing of filings.
 
 4. Parse-Files - The Arcane Analysis
--Description: Here, you delve into the essence of the scrolls. This function deciphers the arcane symbols and texts within the SEC filings, extracting meaningful information. It's your moment to understand the ancient knowledge, converting raw data into insights.
+-Description: Here, you delve into the essence of the scrolls. This function deciphers the arcane symbols and texts within the SEC filings, extracting meaningful information. It's your moment to understand the ancient knowledge, converting raw data into insights. (searches company filings for a keyword).
+much faster than view-files.
 
 69. AllYourBaseAreBelongToUs - The Forbidden Spell
 -Description: This is akin to casting a spell so powerful it summons an entire army or, more fittingly, commands all units to attack. This function, if unleashed, would initiate a process to download EVERY SEC filing, filling your digital realm (hard drive) with data, much like how a Night Elf might call upon all forest creatures to defend their homeland, overwhelming the enemy with sheer numbers.

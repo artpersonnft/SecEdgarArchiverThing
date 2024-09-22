@@ -15,9 +15,13 @@ python -m pip install --upgrade pip
 The script is your map and key to the treasure vaults of SEC knowledge,
 The Quest Begins with the following incantations..
 
+
 Open your terminal (the portal to the digital realm).
+
 linux: sudo python3 TheDoor.py
+
 windows : python3 TheDoor.py
+
 it will whip the sec files necessary into creation, 
 in the same folder the script was ran from.
 SEC master archives come in zip form, with an idx file inside. its a spreadsheet.. those are saved to ./sec_archives/, where as the edgar files downloaded are text files, which are either htm or xml files, and those will go to ./edgar/.
